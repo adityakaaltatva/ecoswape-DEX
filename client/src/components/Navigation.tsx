@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, BarChart2, Wallet, Settings, Store } from 'lucide-react';
 
 const Navigation: React.FC = () => {
+  const [connected, setConnected] = useState<boolean>(false);
+  const [account, setAccount] = useState<string>('');
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+        });
+        setAccount(accounts[0]);
+        setConnected(true);
+      } catch (error) {
+        console.error("Error connecting to MetaMask", error);
+      }
+    } else {
+      alert('MetaMask is not installed. Please install it to use this feature.');
+    }
+  };
+
   return (
     <nav className="bg-white shadow-lg">
       <div className="container mx-auto px-4">
@@ -11,7 +30,7 @@ const Navigation: React.FC = () => {
             <Leaf className="h-8 w-8 text-green-600" />
             <span className="text-xl font-bold text-gray-900">EcoSwape</span>
           </Link>
-          
+
           <div className="hidden md:flex space-x-8">
             <Link to="/dashboard" className="flex items-center space-x-1 text-gray-600 hover:text-green-600">
               <BarChart2 className="h-5 w-5" />
@@ -32,14 +51,17 @@ const Navigation: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-              Connect Wallet
+            <button
+              onClick={connectWallet}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+            >
+              {connected ? `Connected: ${account.slice(0, 6)}...${account.slice(-4)}` : 'Connect Wallet'}
             </button>
           </div>
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navigation;
