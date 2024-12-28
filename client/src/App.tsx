@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -7,6 +6,7 @@ import Marketplace from './pages/Marketplace';
 import Wallet from './pages/Wallet';
 import Settings from './pages/Settings';
 import Admin from './pages/Admin';
+import Market from './components/market/market';
 
 function App() {
   return (
@@ -19,10 +19,11 @@ function App() {
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/trade" element={<Market />} />  {/* Use Market component */}
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;  // Ensure this is added
+export default App;
