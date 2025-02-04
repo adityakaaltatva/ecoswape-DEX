@@ -1,10 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  root: '.', // Ensures Vite recognizes index.html in client/
-  publicDir: 'public', // Ensure static files are detected
+  root: '.', // Ensures index.html is found
+  publicDir: 'public', // Static files go here
+  build: {
+    outDir: 'dist', // Ensures correct build output
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
