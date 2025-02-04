@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Newsletter</h3>
-            <p className="text-gray-600">Stay updated with our latest news</p>
+            <p className="text-gray-600">Stay updated with our latest Carbon trends</p>
             <div className="flex">
               <input
                 type="email"
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t text-center text-gray-600">
-          <p>&copy; {new Date().getFullYear()} EcoSWAPE. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} EcoSWAPE Aditya. All rights reserved.</p>
         </div>
       </div>
     </footer>
