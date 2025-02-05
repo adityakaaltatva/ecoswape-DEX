@@ -6,7 +6,7 @@ export default defineConfig({
   root: '.', // Ensures index.html is found
   publicDir: 'public', // Static files go here
   build: {
-    outDir: 'dist', // Ensures correct build output
+    outDir: 'dist', // 
   },
   resolve: {
     alias: {
