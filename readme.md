@@ -1,102 +1,94 @@
 
-Here’s a detailed `README.md` file for your EcoSwape and CBDC Payment Platform, following the system design outlined:
 
-```markdown
-# EcoSwape & CBDC Payment Platform
-
-## Overview
-**EcoSwape** is a decentralized exchange (DEX) designed to facilitate carbon credit trading while enforcing carbon offset with every transaction. Combined with a **CBDC Payment Platform**, it supports global, multi-currency payment solutions, offering a seamless user experience for both individuals and merchants. The platform uses blockchain technology for transparency, AI for personalized recommendations and fraud detection, Grafana for real-time insights, and CDN architecture for global scalability.
-
-## Table of Contents
-- [Features](#features)
-- [Core Components](#core-components)
-- [Technology Stack](#technology-stack)
-- [Setup](#setup)
-- [Architecture Overview](#architecture-overview)
-- [Implementation Roadmap](#implementation-roadmap)
-- [Security Features](#security-features)
-- [License](#license)
-
-## Features
-
-### EcoSwape - Carbon Credit DEX
-- **Carbon Credit Trading**: Transparent and efficient exchange of legitimate carbon credits.
-- **Carbon Offset Enforcement**: Automatic tracking and verification of carbon offsets per transaction.
-- **Blockchain-Based Verification**: Third-party registry integrations for credit validation.
-- **AI-powered Tracking and Recommendations**: Predicts optimal carbon credit purchase strategies.
-- **Smart Contracts**: Utilize ERC-1155 tokens for carbon credits and enforce carbon offset rules.
-- **Real-Time GIS Heatmaps**: Visualize emissions reduction projects on a geographical scale.
-
-### CBDC Payment Platform
-- **Multi-Currency Support**: Supports CBDCs, stablecoins, fiat, and cryptocurrencies.
-- **Wallet System**: Multi-currency balances and user-to-user transfers.
-- **Offline Payment**: ZK-enabled offline payment systems.
-- **Seamless Payment Integration**: Tap-to-pay (NFC), barcode scanning, and traditional debit/credit card payments.
-- **Personalized Merchant Recommendations**: AI-driven features for suggesting local merchants.
-- **Financial Inclusion Features**: Microloans, overdrafts, and automated savings plans for users.
-- **KYC/AML Compliance**: Ensures safe and verified user interactions for financial services.
-
-### Security & Monitoring
-- **Zero-Knowledge Proofs (ZKPs)**: For privacy-centric offline transactions.
-- **Data Encryption**: End-to-end encryption ensures secure communication and storage.
-- **AI-Driven Threat Detection**: Machine learning models for proactive threat mitigation.
-- **Grafana Monitoring**: Real-time dashboards to visualize platform health, transaction metrics, and user activities.
-- **MPC Wallets**: Enhanced security for user funds through multi-party computation.
-
-## Core Components
-
-1. **Blockchain Infrastructure**: 
-   - Polygon (Layer 2) for scalability and cost-efficient decentralized transactions.
-   - Ripple CBDC platform integration for facilitating cross-asset payments and fiat integration.
-
-2. **Verification System**:
-   - Third-party registries like Verra and Gold Standard for carbon credit legitimacy.
-   - Machine learning models for fraud detection in carbon credit trading.
-  
-3. **Carbon Offset**:
-   - Carbon offset tracking via smart contracts integrated with real-world projects.
-   - Funding for offset projects via transaction fees or a dedicated offset pool.
-
-4. **Payment Methods**:
-   - Support for NFC tap-to-pay, barcode scanning, and traditional card payments.
-   - Supports fiat (CBDCs), stablecoins, and cryptocurrencies within the same wallet.
-
-5. **Banking & Financial Services**:
-   - Automated credit assessment based on KYC and spending habits.
-   - Integration with microfinance, savings accounts, investments, and loans.
-
-6. **User Features**:
-   - AI-powered recommendations, including merchant and payment method suggestions.
-   - Automated savings and investment management with ROI features.
-
-7. **Real-Time Insights**:
-   - Use Grafana dashboards for visualizing platform performance, API response times, and usage data.
-
-## Technology Stack
-
-- **Blockchain**: Polygon (Layer 2), Ripple CBDC
-- **Smart Contracts**: Ethereum (ERC-1155)
-- **Frontend**: React.js, Next.js
-- **Backend**: Node.js, Express.js
-- **Databases**: MongoDB (for user data, financial records)
-- **AI/ML**: Python-based models for predictive insights and fraud detection
-- **Containerization**: Docker, Kubernetes (for cloud-native scaling)
-- **Cloud Infrastructure**: AWS (for hosting, storage, serverless services)
-- **CI/CD**: Jenkins, GitHub Actions (for continuous integration and delivery)
-- **Monitoring**: Grafana, ELK Stack (for logs and system performance)
-
-## Setup
-
-### Prerequisites
-- Node.js (v14+)
-- npm or yarn for package management
-- Docker (for local environment setup)
-
-### Local Development
-1. Clone the repository:
+2. Install dependencies:
    ```bash
-   git clone https://github.com/<your-repository>/EcoSwape-CBDC-Payment
-   cd EcoSwape-CBDC-Payment
+   npm install
+   ```
+3. Setup environment variables (`.env` file):
+   ```bash
+   MONGODB_URI=<your_mongodb_url>
+   INFURA_API_KEY=<your_infura_key>
+   PRIVATE_KEY=<your_wallet_private_key>
+   ```
+4. Start the server:
+   ```bash
+   npm run dev
+   ```
+
+## Running the DEX Locally
+
+1. Navigate to the client directory:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Build the project:
+   ```bash
+   npm run build
+   ```
+4. Start the client:
+   ```bash
+   npm start
+   ```
+
+## Architecture Overview
+
+1. **Blockchain Layer**: Smart contracts deployed on **Ethereum & Polygon** for decentralized transactions.
+2. **Verification System**: AI models **validate carbon credit legitimacy** before transactions.
+3. **Payment Gateway**: CBDC & stablecoin transactions managed via **Ripple’s CBDC platform**.
+4. **Fraud Detection**: Machine learning models identify suspicious trading patterns.
+5. **Real-Time Monitoring**: **Grafana dashboards** track transactions & platform performance.
+
+## Implementation Roadmap
+
+### Phase 1: Core DEX & Wallet
+
+- Develop **carbon credit trading smart contracts**.
+- Implement **wallet integration & multi-chain support**.
+- Launch **basic AI fraud detection models**.
+
+### Phase 2: Advanced Verification & Compliance
+
+- Integrate **GIS-based carbon offset tracking**.
+- Implement **KYC/AML compliance**.
+- Introduce **carbon credit certification & registry partnerships**.
+
+### Phase 3: CBDC Payment Integration
+
+- Enable **CBDC & stablecoin payments**.
+- Implement **zero-knowledge proofs for transaction privacy**.
+- Introduce **automated savings & microloans for financial inclusion**.
+
+### Phase 4: Optimization & DAO Governance
+
+- Deploy **full-scale DAO model** for decentralized governance.
+- Optimize **transaction efficiency and AI-powered market predictions**.
+- Enhance **CDN scalability & global network performance**.
+
+## Security Features
+
+- **Zero-Knowledge Proofs (ZKPs)**: Protects **user privacy** in transactions.
+- **End-to-End Encryption**: Ensures **secure API communication**.
+- **MPC Wallets**: Uses **multi-party computation** for enhanced security.
+- **AI-Driven Threat Detection**: Identifies **suspicious activities & fraud**.
+- **Governance & Compliance**: Adheres to **global carbon credit standards**.
+
+## Resources
+
+- **[GitHub Repository](https://github.com/adityakaaltatva/EcoSwape)**
+- **[Live Demo](https://ecoswape-marketplace.vercel.app/)**
+- **[Whitepaper](https://ecoswape-docs.com/whitepaper.pdf)**
+- **[Technical Documentation](https://ecoswape-docs.com/)**
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE.md](https://chatgpt.com/c/LICENSE.md) file for details.
+
+```
+
 ```
 
 2. Install dependencies:
@@ -179,8 +171,69 @@ Here’s a detailed `README.md` file for your EcoSwape and CBDC Payment Platform
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://chatgpt.com/c/LICENSE.md) file for details.
-
-```
-
 This README includes setup instructions, the technology stack, the features of both the EcoSwape carbon credit exchange and the CBDC payment platform, security aspects, and system architecture, offering both a high-level overview and detailed step-by-step instructions for local deployment. Let me know if you need adjustments or more information on any section!
-```
+
+## Overview
+
+**EcoSwape** is a blockchain-based **carbon credit marketplace** designed to enable seamless, transparent, and efficient trading of carbon credits. It incorporates AI-driven market predictions, decentralized governance, and **CBDC payment integration** to enhance sustainability and economic viability.
+
+## Table of Contents
+
+- [Features](#features)
+- [Core Components](#core-components)
+- [Technology Stack](#technology-stack)
+- [Setup](#setup)
+- [Running the DEX Locally](#running-the-dex-locally)
+- [Architecture Overview](#architecture-overview)
+- [Implementation Roadmap](#implementation-roadmap)
+- [Security Features](#security-features)
+- [Resources](#resources)
+- [License](#license)
+
+## Features
+
+### EcoSwape - Carbon Credit Marketplace
+
+- **AI-Powered Smart Contracts**: Ensures **95% efficiency** in carbon credit transactions.
+- **Blockchain-Based Verification**: Integrates decentralized registries for **on-chain validation**.
+- **Carbon Offset Enforcement**: Enforces sustainability by automating offset verification.
+- **Cross-Border Payments**: Supports **CBDCs, stablecoins, and cryptocurrencies**.
+- **Multi-Chain Compatibility**: Supports **Ethereum, Polygon, and Ripple CBDC infrastructure**.
+- **Fraud Detection**: AI-driven detection of illegitimate carbon credits.
+- **Decentralized Autonomous Organization (DAO)**: Community-driven governance and decision-making.
+- **Real-Time GIS Tracking**: Visual representation of carbon offset projects worldwide.
+
+## Core Components
+
+1. **Smart Contracts**: Developed on **Ethereum (ERC-1155) & Polygon** to support **scalability and low-cost transactions**.
+2. **Decentralized Verification**: AI-powered models **validate carbon credit legitimacy**.
+3. **CBDC & Crypto Payments**: Enables secure, multi-currency transactions.
+4. **AI/ML for Market Predictions**: Ensures dynamic pricing and **fraud detection**.
+5. **Governance Model**: DAO-based consensus for protocol updates and policies.
+
+## Technology Stack
+
+- **Blockchain**: Polygon, Ethereum (ERC-1155), Ripple CBDC
+- **Smart Contracts**: Solidity
+- **Frontend**: React.js, Next.js, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (for user & transaction data)
+- **AI/ML**: Python-based models for **predictive analytics** and **fraud detection**
+- **Cloud Infrastructure**: AWS, IPFS (for decentralized storage)
+- **Monitoring**: Grafana, ELK Stack
+
+## Setup
+
+### Prerequisites
+
+- Install **Node.js (v14+)**
+- Install **MongoDB** (or use MongoDB Atlas)
+- Install **Docker** (for containerized deployment)
+
+### Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/adityakaaltatva/EcoSwape
+   cd EcoSwape
+   ```
